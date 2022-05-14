@@ -14,7 +14,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::paginate();
 
         return view(
             'todos',
@@ -32,7 +32,6 @@ class TodoController extends Controller
     public function create()
     {
         Todo::create([
-            'id' => 1,
             'title' => 'Новая задача',
             'description' => 'Описание задачи ...',
             'created_at' => date("Y-m-d H:i:s"),
